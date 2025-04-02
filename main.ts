@@ -4,8 +4,6 @@ namespace KSRobot_Sensor {
     let initialized = false;
     let Weight_Maopi =0;
 
-
-
     export enum DHT_type {
         //% blockId="DHT11" block="DHT11"
         DHT11,
@@ -194,11 +192,7 @@ namespace KSRobot_Sensor {
         return (Math.round(temp * 4 / 1024 / 10000 * 1000000 * 4))
     }
 
-    //% blockId="KSRobot_wind_sensor1" block="Wind Sensor(m/s) set pin %dataPin"
-    export function wind_sensor1(dataPin: AnalogPin): number {
-        let temp = pins.analogReadPin(dataPin)
-        return (temp * 4 / 1024 * 26)
-    }
+
 
     function HX711_Read(sck_pin: DigitalPin, data_pin: DigitalPin): number {
 
@@ -282,8 +276,6 @@ namespace KSRobot_Sensor {
 
         }
 
-
-
         //Get_Weight()
         HX711_Buffer = HX711_Read(sck_pin, data_pin);
         HX711_Buffer = HX711_Buffer / 100;
@@ -293,9 +285,19 @@ namespace KSRobot_Sensor {
         Weight = Math.round(Weight_Shiwu / 2.14);
 
 
-
         return Weight
         
+    }
+
+    //% blockId="KSRobot_wind_speed" block="Wind Sensor(m/s) set pin %dataPin"
+    export function wind_speed(dataPin: AnalogPin): number {
+        let temp = pins.analogReadPin(dataPin)
+        return (temp * 4 / 1024 * 26)
+    }
+    //% blockId="KSRobot_wind_direction" block="Wind Sensor(m/s) set pin %dataPin"
+    export function wind_direction(dataPin: AnalogPin): number {
+        let temp = pins.analogReadPin(dataPin)
+        return (temp * 4 / 1024 * 26)
     }
 
 

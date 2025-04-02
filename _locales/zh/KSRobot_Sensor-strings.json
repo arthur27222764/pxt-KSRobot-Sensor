@@ -7,7 +7,8 @@
 	"KSRobot_Sensor.SOIL_State.Humidity|block": "濕度",
 	"KSRobot_Sensor.dht_readdata|block": "型號 %dht_type |腳位 %dataPin |取得 %dht_state",
 	"KSRobot_Sensor.soil_readdata|block": "土壤感測器 腳位 %dataPin |取得 %soil_state",
-	"KSRobot_Sensor.temt6000|block": "TEMT6000(Lux) 腳位 %dhtpin",
-	"KSRobot_Sensor.wind_sensor1|block": "風速計(m/s) 腳位 %dhtpin",
+	"KSRobot_Sensor.temt6000|block": "照度計(Lux) 腳位 %dataPin",
+	"KSRobot_Sensor.wind_speed|block": "風速計(m/s) 腳位 %dataPin",
+	"KSRobot_Sensor.wind_direction|block": "風向計(m/s) 腳位 %dataPin",
 	"KSRobot_Sensor.load_cell|block": "重量感測器(g) SCK腳位 %sck_pin |DAT腳位 %data_pin"
 }
