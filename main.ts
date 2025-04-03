@@ -310,7 +310,7 @@ namespace KSRobot_Sensor {
     }
 
     //% blockId="KSRobot_CO2_readdata" block="CO2 TXD %txd| RXD %rxd"
-    export function CO2_readdata(txd: SerialPin, rxd: SerialPing): number {
+    export function CO2_readdata(txd: SerialPin, rxd: SerialPin): number {
 
         return 0
     }
