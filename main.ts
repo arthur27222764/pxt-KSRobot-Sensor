@@ -193,7 +193,6 @@ namespace KSRobot_Sensor {
     }
 
 
-
     function HX711_Read(sck_pin: DigitalPin, data_pin: DigitalPin): number {
 
         // gain 128
@@ -294,11 +293,28 @@ namespace KSRobot_Sensor {
         let temp = pins.analogReadPin(dataPin)
         return (temp * 4 / 1024 * 26)
     }
-    //% blockId="KSRobot_wind_direction" block="Wind Sensor(m/s) set pin %dataPin"
+    //% blockId="KSRobot_wind_direction" block="Wind Sensor set pin %dataPin"
     export function wind_direction(dataPin: AnalogPin): number {
         let temp = pins.analogReadPin(dataPin)
         return (temp * 4 / 1024 * 26)
     }
+    //% blockId="KSRobot_flow_sensor" block="Flow Sensor set pin %dataPin"
+    export function flow_sensor(dataPin: AnalogPin): number {
+        let temp = pins.analogReadPin(dataPin)
+        return (temp * 4 / 1024 * 26)
+    }
+    //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen set pin %dataPin"
+    export function dissolved_oxygen(dataPin: AnalogPin): number {
+        let temp = pins.analogReadPin(dataPin)
+        return (temp * 4 / 1024 * 26)
+    }
+
+    //% blockId="KSRobot_CO2_readdata" block="CO2 TXD %txd| RXD %rxd"
+    export function CO2_readdata(txd: SerialPin, rxd: SerialPing): number {
+
+        return 0
+    }
+
 
 
 
