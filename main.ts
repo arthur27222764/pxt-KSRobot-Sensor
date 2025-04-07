@@ -4,6 +4,13 @@ namespace KSRobot_Sensor {
     let initialized = false;
     let Weight_Maopi =0;
 
+    export enum Sensor_Version {
+        Version1 = 0,
+        Version2 = 1,
+
+    }
+
+
     export enum DHT_type {
         //% blockId="DHT11" block="DHT11"
         DHT11,
@@ -26,6 +33,28 @@ namespace KSRobot_Sensor {
         //% blockId="Humidity" block="Humidity"
         Humidity,
     }
+
+    export enum Wind_Direction_State {
+        //% blockId="North_wind" block="North"
+        North = 0,
+        //% blockId="Northeast_wind" block="Northeast"
+        Northeast = 1,
+        //% blockId="East_wind" block="East"
+        East = 2,
+        //% blockId="Southeast_wind" block="Southeast"
+        Southeast = 3,
+        //% blockId="South_wind" block="South"
+        South = 4,
+        //% blockId="Southwest_wind" block="Southwest"
+        Southwest = 5,
+        //% blockId="West_wind" block="West"
+        West = 6,
+        //% blockId="Northwest_wind" block="Northwest"
+        Northwest = 7,
+        
+
+    }
+
 
 
     //% blockId="KSRobot_dht11" block="DHT set %dht_type pin %dataPin|get %dht_state"
@@ -288,10 +317,21 @@ namespace KSRobot_Sensor {
         
     }
 
-    //% blockId="KSRobot_wind_speed" block="Wind Sensor(m/s) set pin %dataPin"
-    export function wind_speed(dataPin: AnalogPin): number {
-        let temp = pins.analogReadPin(dataPin)
-        return (temp * 4 / 1024 * 26)
+    //% blockId="KSRobot_wind_speed" block="Wind Sensor(m/s) Version %version | set pin %dataPin"
+    export function wind_speed(version:Sensor_Version , dataPin: AnalogPin): number {
+        switch (version) {
+            case Sensor_Version.Version1:
+                let temp = pins.analogReadPin(dataPin);
+                return (temp * 4 / 1024 * 26);
+                break;
+            case Sensor_Version.Version2:
+                let temp = pins.analogReadPin(dataPin);
+                return (temp * 4 / 1024 * 26);
+                break;
+        }
+
+            
+
     }
     //% blockId="KSRobot_wind_direction" block="Wind Sensor set pin %dataPin"
     export function wind_direction(dataPin: AnalogPin): number {
