@@ -319,13 +319,14 @@ namespace KSRobot_Sensor {
 
     //% blockId="KSRobot_wind_speed" block="Wind Sensor(m/s) Version %version | set pin %dataPin"
     export function wind_speed(version:Sensor_Version , dataPin: AnalogPin): number {
+        let temp = pins.analogReadPin(dataPin);
         switch (version) {
             case Sensor_Version.Version1:
-                let temp = pins.analogReadPin(dataPin);
+                
                 return (temp * 4 / 1024 * 26);
                 break;
             case Sensor_Version.Version2:
-                let temp = pins.analogReadPin(dataPin);
+               
                 return (temp * 4 / 1024 * 26);
                 break;
         }
