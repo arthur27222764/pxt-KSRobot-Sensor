@@ -336,9 +336,43 @@ namespace KSRobot_Sensor {
     }
     //% blockId="KSRobot_wind_direction" block="Wind Sensor set pin %dataPin"
     export function wind_direction(dataPin: AnalogPin): number {
-        let temp = pins.analogReadPin(dataPin)
-        return (temp * 4 / 1024 * 26)
+        let temp = pins.analogReadPin(dataPin);
+        if(temp<50)
+        {
+            return Wind_Direction_State.North;
+        }
+        else if(temp<200)
+        {
+            return Wind_Direction_State.Northeast;
+        }
+        else if(temp<350)
+        {
+            return Wind_Direction_State.East;
+        }
+        else if(temp<480)
+        {
+            return Wind_Direction_State.Southeast;
+        }
+        else if(temp<620)
+        {
+            return Wind_Direction_State.South;
+        }
+        else if(temp<760)
+        {
+            return Wind_Direction_State.Southwest;
+        }
+        else if(temp<900)
+        {
+            return Wind_Direction_State.West;
+        }
+        else if(temp<1024)
+        {
+            return Wind_Direction_State.Northwest;
+        }
+
     }
+
+
     //% blockId="KSRobot_flow_sensor" block="Flow Sensor set pin %dataPin"
     export function flow_sensor(dataPin: AnalogPin): number {
         let temp = pins.analogReadPin(dataPin)
