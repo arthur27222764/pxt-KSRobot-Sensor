@@ -373,6 +373,13 @@ namespace KSRobot_Sensor {
     }
 
 
+        //% blockId="KSRobot_wind_direction_val" block="Wind Direction %wind_dir_state"
+    export function wind_direction_val(wind_dir_state: Wind_Direction_State): number {
+        return wind_dir_state;
+    }
+
+
+    
     //% blockId="KSRobot_flow_sensor" block="Flow Sensor set pin %dataPin"
     export function flow_sensor(dataPin: AnalogPin): number {
         let temp = pins.analogReadPin(dataPin)
