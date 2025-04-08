@@ -327,7 +327,7 @@ namespace KSRobot_Sensor {
                 break;
             case Sensor_Version.Version2:
                
-                return (temp * 4 / 1024 * 26);
+                return (temp / 1024 * 5 * 6);
                 break;
         }
 
