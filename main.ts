@@ -365,7 +365,7 @@ namespace KSRobot_Sensor {
         {
             return Wind_Direction_State.West;
         }
-        else if(temp<1024)
+        else(temp<1024)
         {
             return Wind_Direction_State.Northwest;
         }
