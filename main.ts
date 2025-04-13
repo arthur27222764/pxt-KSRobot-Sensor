@@ -402,12 +402,12 @@ namespace KSRobot_Sensor {
 
     //% blockId="KSRobot_flow_sensor_init" block="Water Flow Sensor Set pin %dataPin"
     export function flow_sensor_init(dataPin: DigitalPin): void {
-        flow_sensor_read(dataPin: DigitalPin)
+        flow_sensor_read(dataPin)
         
     }
 
     
-    //% blockId="KSRobot_flow_sensor" block="Read Water Flow Sensor(L）"
+    //% blockId="KSRobot_read_flow_sensor" block="Read Water Flow Sensor(L）"
     export function read_flow_sensor(): number {
         return flow_water_val
     
