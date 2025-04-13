@@ -393,7 +393,7 @@ namespace KSRobot_Sensor {
                 if (temp == 0 && plus_flag == 1) {
                     plus_flag = 0
                 }
-                control.waitMicros(2)
+                basic.pause(2)
                
             }
         })
