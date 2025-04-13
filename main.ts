@@ -3,6 +3,7 @@ namespace KSRobot_Sensor {
 
     let initialized = false;
     let Weight_Maopi =0;
+    let flow_water_val = 0;
 
     export enum Sensor_Version {
         Version1 = 0,
@@ -289,8 +290,6 @@ namespace KSRobot_Sensor {
 
         let Weight = 0;
         let HX711_Buffer =0;
-        
-        
 
         //Get_Maopi()
         if (!initialized) {
@@ -373,17 +372,45 @@ namespace KSRobot_Sensor {
     }
 
 
-        //% blockId="KSRobot_wind_direction_val" block="Wind Direction %wind_dir_state"
+    //% blockId="KSRobot_wind_direction_val" block="Wind Direction %wind_dir_state"
     export function wind_direction_val(wind_dir_state: Wind_Direction_State): number {
         return wind_dir_state;
     }
+    
+    function flow_sensor_read(iopin: DigitalPin): void {
 
+        let temp = 0
+        let plus_flag = 0
+        let plus_cnt = 0
+        control.inBackground(function () {
+            while (true) {
+                temp = pins.digitalReadPin(iopin)
+                if (temp== 1 && plus_flag == 0) {
+                    plus_flag = 1
+                    plus_cnt += 1
+                    flow_water_val = plus_cnt / 450
+                }
+                if (temp == 0 && plus_flag == 1) {
+                    plus_flag = 0
+                }
+                control.waitMicros(2)
+               
+            }
+        })
+
+    }
+
+    //% blockId="KSRobot_flow_sensor_init" block="Water Flow Sensor Set pin %dataPin"
+    export function flow_sensor_init(dataPin: DigitalPin): void {
+        flow_sensor_read(dataPin: DigitalPin)
+        
+    }
 
     
-    //% blockId="KSRobot_flow_sensor" block="Flow Sensor set pin %dataPin"
-    export function flow_sensor(dataPin: AnalogPin): number {
-        let temp = pins.analogReadPin(dataPin)
-        return (temp * 4 / 1024 * 26)
+    //% blockId="KSRobot_flow_sensor" block="Read Water Flow Sensor(L）"
+    export function read_flow_sensor(): number {
+        return flow_water_val
+    
     }
     //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen set pin %dataPin"
     export function dissolved_oxygen(dataPin: AnalogPin): number {
