@@ -19,7 +19,7 @@
 	"KSRobot_Sensor.wind_speed|block": "風速計(m/s) 版本 %version |腳位 %dataPin",
 	"KSRobot_Sensor.wind_direction|block": "風向計 腳位 %dataPin",
 	"KSRobot_Sensor.wind_direction_val|block":"風向 %wind_dir_state",
-	"KSRobot_Sensor.flow_sensor|block": "流量計 初始化 腳位 %dataPin",
+	"KSRobot_Sensor.flow_sensor_init|block": "流量計 初始化 腳位 %dataPin",
 	"KSRobot_Sensor.read_flow_sensor|block": "讀取流量計數值(L)",
 	"KSRobot_Sensor.dissolved_oxygen|block": "溶解氧感測器 腳位 %dataPin",
 	"KSRobot_Sensor.CO2_readdata|block": "二氧化碳  TXD %txd| RXD %rxd",
