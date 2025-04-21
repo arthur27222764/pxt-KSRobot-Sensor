@@ -414,6 +414,11 @@ namespace KSRobot_Sensor {
     }
     //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen(mg/L) set pin %dataPin"
     export function dissolved_oxygen(dataPin: AnalogPin): number {
+
+
+
+
+        
         let temp = pins.analogReadPin(dataPin)
         return (temp * 4 / 1024 * 26)
     }
