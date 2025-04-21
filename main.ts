@@ -440,13 +440,13 @@ namespace KSRobot_Sensor {
 
 
 
-        if(DO<=0)
-            {DO=0;}
-        if(DO>=20000)
-            {DO=20000;}
+        if( DO<=0 )
+            { DO=0; }
+        if( DO>=20000 )
+            { DO=20000; }
 
 
-        return temp
+        return DO
     }
 
     //% blockId="KSRobot_CO2_readdata" block="CO2(ppm) TXD %txd| RXD %rxd"
