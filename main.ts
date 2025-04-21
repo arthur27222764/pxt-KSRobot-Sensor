@@ -414,10 +414,38 @@ namespace KSRobot_Sensor {
     }
     //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen(mg/L) set pin %dataPin temperature %tempPin"
     export function dissolved_oxygen(dataPin: AnalogPin, tempPin: DigitalPin): number {
+        let Do = 0 
+        let VREF = 5000    
+        let ADC_RES = 1024 
+
+        let CAL1_V = 5000 //mV
+        let CAL1_T = 25   //C
+        let CAL2_V = 1300 //mV
+        let CAL2_T = 15   //C
+
+        let DO_Table = [
+            14460, 14220, 13820, 13440, 13090, 12740, 12420, 12110, 11810, 11530,
+            11260, 11010, 10770, 10530, 10300, 10080, 9860, 9660, 9460, 9270,
+            9080, 8900, 8730, 8570, 8410, 8250, 8110, 7960, 7820, 7690,
+            7560, 7430, 7300, 7180, 7070, 6950, 6840, 6730, 6630, 6530, 6410
+        ]
+
+
+        let temperature_c = Math.round(dstemp.celsius(tempPin))
+        let ADC_Raw = pins.analogReadPin(dataPin);
+        let ADC_Voltage = (VREF) * ADC_Raw / ADC_RES;
+
+        let V_saturation =  (CAL1_V - CAL2_V)*(temperature_c - CAL2_T) / (CAL1_T - CAL2_T) + CAL2_V;
+        return (ADC_Voltage * DO_Table[temperature_c] / V_saturation);
 
 
 
-        let temp = Math.round(dstemp.celsius(tempPin))
+        if(DO<=0)
+            {DO=0;}
+        if(DO>=20000)
+            {DO=20000;}
+
+
         return temp
     }
 
