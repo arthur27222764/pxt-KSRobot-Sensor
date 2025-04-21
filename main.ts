@@ -418,10 +418,44 @@ namespace KSRobot_Sensor {
         return (temp * 4 / 1024 * 26)
     }
 
-    //% blockId="KSRobot_CO2_readdata" block="CO2 TXD %txd| RXD %rxd"
+    //% blockId="KSRobot_CO2_readdata" block="CO2 ppm TXD %txd| RXD %rxd"
     export function CO2_readdata(txd: SerialPin, rxd: SerialPin): number {
+        let co2 = 0
+        let rowData: Buffer = null
+        let myBuff = pins.createBuffer(10);
+        let dataArr = [
+            255,
+            1,
+            134,
+            0,
+            0,
+            0,
+            0,
+            0,
+            121
+            ]
+        serial.redirect(
+            txd,   //TX
+            rxd,  //RX
+            BaudRate.BaudRate9600
+        );
+        serial.setRxBufferSize(10)
+        serial.setTxBufferSize(10)
+        
+        for (let i = 0; i <= 8; i++) {
+            myBuff.setNumber(NumberFormat.UInt8BE, i, dataArr[i])
+        }
+        serial.writeBuffer(myBuff)
+        basic.pause(100)
+        rowData = serial.readBuffer(0)
+        if (rowData.length > 8) {
+            if (rowData[1] == 134) {
+                co2 = 256 * rowData[2] + rowData[3]
+            
+            }
+        }
 
-        return 0
+        return co2
     }
 
 
