@@ -436,7 +436,7 @@ namespace KSRobot_Sensor {
         let ADC_Voltage = (VREF) * ADC_Raw / ADC_RES;
 
         let V_saturation =  (CAL1_V - CAL2_V)*(temperature_c - CAL2_T) / (CAL1_T - CAL2_T) + CAL2_V;
-        return (ADC_Voltage * DO_Table[temperature_c] / V_saturation);
+        DO = (ADC_Voltage * DO_Table[temperature_c] / V_saturation);
 
 
 
