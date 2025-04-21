@@ -417,7 +417,7 @@ namespace KSRobot_Sensor {
 
 
 
-        let temp = dstemp.celsius(tempPin)
+        let temp = Math.round(dstemp.celsius(tempPin))
         return temp
     }
 
