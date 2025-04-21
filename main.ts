@@ -414,7 +414,7 @@ namespace KSRobot_Sensor {
     }
     //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen(mg/L) set pin %dataPin temperature %tempPin"
     export function dissolved_oxygen(dataPin: AnalogPin, tempPin: DigitalPin): number {
-        let Do = 0 
+        let DO = 0 
         let VREF = 5000    
         let ADC_RES = 1024 
 
