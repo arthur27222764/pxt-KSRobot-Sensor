@@ -21,7 +21,7 @@
 	"KSRobot_Sensor.wind_direction_val|block":"風向 %wind_dir_state",
 	"KSRobot_Sensor.flow_sensor_init|block": "流量計 初始化 腳位 %dataPin",
 	"KSRobot_Sensor.read_flow_sensor|block": "讀取流量計數值(L)",
-	"KSRobot_Sensor.dissolved_oxygen|block": "溶解氧感測器 腳位 %dataPin",
-	"KSRobot_Sensor.CO2_readdata|block": "二氧化碳 ppm TXD %txd| RXD %rxd",
+	"KSRobot_Sensor.dissolved_oxygen|block": "溶解氧感測器(mg/L) 腳位 %dataPin",
+	"KSRobot_Sensor.CO2_readdata|block": "二氧化碳(ppm) TXD %txd| RXD %rxd",
 	"KSRobot_Sensor.load_cell|block": "重量感測器(g) SCK腳位 %sck_pin |DAT腳位 %data_pin"
 }

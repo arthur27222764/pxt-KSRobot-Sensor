@@ -412,13 +412,13 @@ namespace KSRobot_Sensor {
         return flow_water_val
     
     }
-    //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen set pin %dataPin"
+    //% blockId="KSRobot_dissolved_oxygen" block=" Dissolved oxygen(mg/L) set pin %dataPin"
     export function dissolved_oxygen(dataPin: AnalogPin): number {
         let temp = pins.analogReadPin(dataPin)
         return (temp * 4 / 1024 * 26)
     }
 
-    //% blockId="KSRobot_CO2_readdata" block="CO2 ppm TXD %txd| RXD %rxd"
+    //% blockId="KSRobot_CO2_readdata" block="CO2(ppm) TXD %txd| RXD %rxd"
     export function CO2_readdata(txd: SerialPin, rxd: SerialPin): number {
         let co2 = 0
         let rowData: Buffer = null
