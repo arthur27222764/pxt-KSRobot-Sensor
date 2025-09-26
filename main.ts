@@ -337,6 +337,7 @@ namespace KSRobot_Sensor {
     export function wind_direction(dataPin: AnalogPin): number {
         let temp = pins.analogReadPin(dataPin);
         if(temp<50)
+            
         {
             return Wind_Direction_State.North;
         }
@@ -416,7 +417,7 @@ namespace KSRobot_Sensor {
     export function dissolved_oxygen(dataPin: AnalogPin, tempPin: DigitalPin): number {
         let DO = 0 
         let VREF = 5000    
-        let ADC_RES = 1024 
+        let ADC_RES = 1023 
 
         let CAL1_V = 5000 //mV
         let CAL1_T = 25   //C
